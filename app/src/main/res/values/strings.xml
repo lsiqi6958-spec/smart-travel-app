@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">ZhiYouYunJing</string>
+    <string name="app_name">智游云境</string>
+    <string name="title_home">首页</string>
+    <string name="title_camera">相机</string>
+    <string name="title_favorites">收藏</string>
+    <string name="title_profile">我的</string>
 </resources>
