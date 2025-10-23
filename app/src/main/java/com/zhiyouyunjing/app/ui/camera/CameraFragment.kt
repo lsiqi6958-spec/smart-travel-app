@@ -1,9 +1,9 @@
 package com.zhiyouyunjing.app.ui.camera
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
 import com.zhiyouyunjing.app.R
 import com.zhiyouyunjing.app.databinding.FragmentCameraBinding
 
@@ -22,17 +22,11 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
         setupClickListeners()
     }
 
-    /**
-     * 设置点击事件监听
-     */
     private fun setupClickListeners() {
         binding.btnTakePhoto.setOnClickListener {
-            // 这里将来实现相机功能
-            Snackbar.make(
-                requireView(),  // ✅ 正确
-                "相机功能开发中...",
-                Snackbar.LENGTH_SHORT
-            ).show()
+            // 跳转到相机Activity
+            val intent = Intent(requireContext(), CameraActivity::class.java)
+            startActivity(intent)
         }
     }
 
