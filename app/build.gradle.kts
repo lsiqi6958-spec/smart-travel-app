@@ -86,4 +86,6 @@ dependencies {
     // 图片加载库（用于显示拍摄结果）
     implementation("io.coil-kt:coil:2.5.0")
 
+    // ViewPager2
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
 }
