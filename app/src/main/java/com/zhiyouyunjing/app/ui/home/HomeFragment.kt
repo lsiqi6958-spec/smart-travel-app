@@ -41,9 +41,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun setupRecyclerView() {
         adapter = ScenicSpotAdapter(
             onItemClick = { spot ->
-                // 点击景点卡片
-                showMessage("点击了：${spot.name}")
-                // TODO: 跳转到景点详情页
+                // 跳转到景点详情页
+                com.zhiyouyunjing.app.ui.detail.ScenicSpotDetailActivity.start(
+                    requireContext(),
+                    spot
+                )
             },
             onFavoriteClick = { spot ->
                 // 点击收藏按钮

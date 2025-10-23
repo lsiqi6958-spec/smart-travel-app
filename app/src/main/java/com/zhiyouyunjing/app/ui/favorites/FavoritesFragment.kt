@@ -42,8 +42,11 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
     private fun setupRecyclerView() {
         adapter = ScenicSpotAdapter(
             onItemClick = { spot ->
-                showMessage("查看：${spot.name}")
-                // TODO: 跳转到景点详情
+                // 跳转到景点详情页
+                com.zhiyouyunjing.app.ui.detail.ScenicSpotDetailActivity.start(
+                    requireContext(),
+                    spot
+                )
             },
             onFavoriteClick = { spot ->
                 viewModel.removeFavorite(spot)

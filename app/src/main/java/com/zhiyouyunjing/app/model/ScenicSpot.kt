@@ -1,8 +1,12 @@
 package com.zhiyouyunjing.app.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 /**
  * 景点数据模型
  */
+@Parcelize
 data class ScenicSpot(
     val id: String,
     val name: String,
@@ -11,4 +15,4 @@ data class ScenicSpot(
     val location: String,
     val rating: Float,
     var isFavorite: Boolean = false
-)
+) : Parcelable
