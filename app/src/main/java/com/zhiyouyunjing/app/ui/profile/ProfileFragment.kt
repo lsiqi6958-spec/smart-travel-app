@@ -3,6 +3,7 @@ package com.zhiyouyunjing.app.ui.profile
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -14,6 +15,7 @@ import com.zhiyouyunjing.app.R
 import com.zhiyouyunjing.app.data.UserManager
 import com.zhiyouyunjing.app.databinding.FragmentProfileBinding
 import com.zhiyouyunjing.app.ui.login.LoginActivity
+import com.zhiyouyunjing.app.ui.settings.SettingsActivity
 import kotlinx.coroutines.launch
 
 /**
@@ -23,6 +25,16 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+
+    // ✅ 注册Activity Result Launcher
+    private val settingsLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == android.app.Activity.RESULT_OK) {
+            // 设置已修改，需要刷新MainActivity
+            activity?.recreate()
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,13 +59,18 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             showLogoutDialog()
         }
 
-        // 设置项点击（暂时显示Toast）
+        // 老年模式 - 跳转到设置页面
         binding.itemElderMode.setOnClickListener {
-            Snackbar.make(requireView(), "老年模式开发中", Snackbar.LENGTH_SHORT).show()
+            // ✅ 使用settingsLauncher启动
+            val intent = Intent(requireContext(), SettingsActivity::class.java)
+            settingsLauncher.launch(intent)
         }
 
+        // 应用设置 - 跳转到设置页面
         binding.itemSettings.setOnClickListener {
-            Snackbar.make(requireView(), "应用设置开发中", Snackbar.LENGTH_SHORT).show()
+            // ✅ 使用settingsLauncher启动
+            val intent = Intent(requireContext(), SettingsActivity::class.java)
+            settingsLauncher.launch(intent)
         }
     }
 

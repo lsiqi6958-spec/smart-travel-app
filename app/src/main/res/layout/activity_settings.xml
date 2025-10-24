@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- AppBar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="应用设置"
+            app:navigationIcon="@drawable/ic_home_24" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- 主内容 -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 老年模式卡片 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="12dp"
+                app:cardBackgroundColor="?attr/colorPrimaryContainer">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="老年模式"
+                            android:textAppearance="?attr/textAppearanceTitleMedium"
+                            android:textColor="?attr/colorOnPrimaryContainer"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="开启后自动设置大字体和高对比度"
+                            android:textAppearance="?attr/textAppearanceBodySmall"
+                            android:textColor="?attr/colorOnPrimaryContainer" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_elder_mode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 字体大小 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="字体大小"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorPrimary" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- 字体大小标签 -->
+                    <TextView
+                        android:id="@+id/tv_font_size_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当前字体：中"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- SeekBar -->
+                    <SeekBar
+                        android:id="@+id/seekbar_font_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="3"
+                        android:progress="1" />
+
+                    <!-- 字体说明 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="小"
+                            android:textSize="12sp"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="中"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="大"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="超大"
+                            android:gravity="end"
+                            android:textSize="12sp"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 字体预览 -->
+            <TextView
+                android:id="@+id/tv_font_size_preview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="字体预览：中"
+                android:textSize="14sp"
+                android:padding="16dp"
+                android:background="?attr/colorSurfaceVariant"
+                android:textColor="?attr/colorOnSurfaceVariant" />
+
+            <!-- 主题模式 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:text="主题模式"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorPrimary" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="12dp">
+
+                <RadioGroup
+                    android:id="@+id/radio_group_theme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radio_theme_light"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="浅色模式"
+                        android:padding="12dp" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radio_theme_dark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="深色模式"
+                        android:padding="12dp" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radio_theme_system"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="跟随系统"
+                        android:padding="12dp" />
+
+                </RadioGroup>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 预览区域 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:text="效果预览"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorPrimary" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="12dp">
+
+                <TextView
+                    android:id="@+id/text_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="这是预览文字\n当前字体大小将实时显示"
+                    android:textAppearance="?attr/textAppearanceBodyLarge"
+                    android:gravity="center" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

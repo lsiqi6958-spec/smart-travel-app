@@ -135,7 +135,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="16dp"
-                        android:text="老年模式（待实现）"
+                        android:text="老年模式"
                         android:textAppearance="?attr/textAppearanceBodyLarge" />
 
                 </com.google.android.material.card.MaterialCardView>
